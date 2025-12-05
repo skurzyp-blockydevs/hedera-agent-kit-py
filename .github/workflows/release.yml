@@ -12,8 +12,8 @@ jobs:
   build-and-publish:
     runs-on: ubuntu-latest
     environment:
-      name: pypi
-      url: https://pypi.org/p/hedera-agent-kit
+      name: testpypi
+      url: https://test.pypi.org/p/hedera-agent-kit
     permissions:
       id-token: write
     steps:
@@ -45,4 +45,5 @@ jobs:
       - name: Publish to PyPI
         uses: pypa/gh-action-pypi-publish@ed0c53931b1dc9bd32cbe73a98c7f6766f8a527e # release/v1
         with:
+          repository-url: https://test.pypi.org/legacy/
           packages_dir: python/dist/
